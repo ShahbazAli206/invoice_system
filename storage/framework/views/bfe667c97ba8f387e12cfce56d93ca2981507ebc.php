@@ -1,5 +1,5 @@
-@extends('layouts.technician')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
@@ -20,18 +20,18 @@
                             <tbody>
                                 <tr>
                                     <td>Order Id</td>
-                                    <td>{{$order->id}}</td>
+                                    <td><?php echo e($order->id); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Status</td>
                                     <td>
-                                    <form action="{{route('technicianpanel.status.update',$order->id)}}" method="post" enctype="multipart/form-data" style="display: flex; gap: 15px; max-width: 300px">
-                                            @csrf
-                                            @method('PUT')
+                                    <form action="<?php echo e(route('technicianpanel.status.update',$order->id)); ?>" method="post" enctype="multipart/form-data" style="display: flex; gap: 15px; max-width: 300px">
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('PUT'); ?>
                                             <select name="status" id=""class="form-control" >
-                                                @foreach ($states as $status)
-                                                    <option value="{{$status}}" @if($order->status == $status) selected @endif>{{$status}}</option>
-                                                @endforeach
+                                                <?php $__currentLoopData = $states; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $status): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($status); ?>" <?php if($order->status == $status): ?> selected <?php endif; ?>><?php echo e($status); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
                                             <button type="submit" class="btn btn-success">Update</button>
                                         </form>
@@ -39,43 +39,42 @@
                                 </tr>
                                 <tr>
                                     <td>Total Amount<br> (Approximated Charges)</td>
-                                    <td>{{$order->total}}</td>
+                                    <td><?php echo e($order->total); ?></td>
                                 </tr>
                                 <tr>
                                     <td>User</td>
-                                    <td>{{$order->name}}</td>
+                                    <td><?php echo e($order->name); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>{{$order->email}}</td>
+                                    <td><?php echo e($order->email); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Phone</td>
-                                    <td>{{$order->phone}}</td>
+                                    <td><?php echo e($order->phone); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Category</td>
-                                    <td>{{$order->country}}</td>
+                                    <td><?php echo e($order->country); ?></td>
                                 </tr>
                                 <tr>
                                     <td>State</td>
-                                    <td>{{$order->state}}</td>
+                                    <td><?php echo e($order->state); ?></td>
                                 </tr>
                                 <tr>
                                     <td>City/td>
-                                    <td>{{$order->city}}</td>
+                                    <td><?php echo e($order->city); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Zip Code</td>
-                                    <td>{{$order->zip}}</td>
+                                    <td><?php echo e($order->zip); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Address</td>
-                                    <td>{{$order->address}}</td>
+                                    <td><?php echo e($order->address); ?></td>
                                 </tr>
                                 <tr>
-                                    {{-- <td>Stripped</td>
-                                    <td>{{$order->strie_id}}</td> --}}
+                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -86,4 +85,6 @@
     </div>
 </div>
  
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.technician', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GBS-10-5-2023\resources\views/technician/pages/view.blade.php ENDPATH**/ ?>

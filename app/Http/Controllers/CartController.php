@@ -5,39 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Color;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 class CartController extends Controller
 {
     public function addToCart(Request $request, $id)
     {
-        $product=Services::findOrFail($id);
+
+        $product = Services::findOrFail($id);
         $color = Color::findOrFail($request->color);
 
+        Log::error('Error saving data to the database' . $product->category_id);
         $item = [
             'product' => $product,
             'quantity' => $request->quantity,
             'color' => $color,
+            'category_id' => $product->category_id,
         ];
 
-        if(session()->has('cart'))
-        {
-             //already exists, increment the quantity
+        if (session()->has('cart')) {
+            //already exists, increment the quantity
             $cart = session()->get('cart');
             $key = $this->checkItemInCart($item);
 
-            if($key != -1)
-            {
-                $cart[$key]['quantity'] += $request -> quantity;
+            if ($key != -1) {
+                $cart[$key]['quantity'] += $request->quantity;
                 session()->put('cart', $cart);
-            }
-            else
-            {
+            } else {
                 session()->push('cart', $item);
-             }
-        }
-        else
-        {
+            }
+        } else {
             session()->push('cart', $item);
         }
         return back()->with('addedToCart', 'Success! Order has been added to cart');
@@ -45,10 +43,8 @@ class CartController extends Controller
 
     public function checkItemInCart($item)
     {
-        foreach(session()->get('cart') as $key => $val)
-        {
-            if($val['product']['id'] == $item['product']['id'] && $val['color']['id'] == $item['color']['id']  )
-            {
+        foreach (session()->get('cart') as $key => $val) {
+            if ($val['product']['id'] == $item['product']['id'] && $val['color']['id'] == $item['color']['id']) {
                 return $key;
             }
         }
@@ -60,23 +56,19 @@ class CartController extends Controller
 
 
 
-public function removeFromCart($key)
+    public function removeFromCart($key)
     {
-        
-       
 
-        if(session()->has('cart'))
-        {
-             //already exists, increment the quantity
+
+
+        if (session()->has('cart')) {
+            //already exists, increment the quantity
             $cart = session()->get('cart');
             array_splice($cart, $key, 1);
             session()->put('cart', $cart);
             return back()->with('success', 'Success! Order rempved from cart');
         }
-        
+
         return back();
-   
-
-
     }
 }

@@ -35,47 +35,14 @@
                         @enderror
                     </div>
 
-                    <div class="field">
-                        <label for="country">Service Type</label>
-                        <input type="text" id="country" name="country" class="@error('country') has-error @enderror"  value="{{old('country') ? old('country'): auth()->user()->country}}"style="color: black">
-
-                        {{-- <select id="country" name="country" style="color: black">
-                            <option value="">--select Country--</option>
-                            <option value="Afghanistan">Afghanistan</option>
-                            <option value="Kashmir">Kashmir</option>
-                            <option selected value="Kashmir">Pakistan</option>
-
-                        </select> --}}
+                    {{-- <div class="field">
+                        <label for="country">Service Category</label>
+                        <input type="text" id="category" name="category" class="@error('category') has-error @enderror"  value="{{old('category') ? old('category'): auth()->user()->category}}"style="color: black">
 
                         @error('country')
                             <span class="field-error">{{$message}}</span>
                         @enderror
-                    </div>
-
-                    <div class="field">
-                        <label for="state">State</label>
-                        <input type="text" id="state" name="state" class="@error('state') has-error @enderror"  value="{{old('state')}}" style="color: black">
-                        @error('state')
-                            <span class="field-error">{{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="field">
-                        <label for="city">City</label>
-                        <input type="text" id="city" name="city" class="@error('city') has-error @enderror"  value="{{old('city')}}" style="color: black">
-                        @error('city')
-                            <span class="field-error">{{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="field">
-                        <label for="zip">Zip Code</label>
-                        <input type="text" id="zip" name="zip" class="@error('zip') has-error @enderror"  value="{{old('zip')}}" style="color: black">
-                        @error('zip')
-                            <span class="field-error">{{$message}}</span>
-                        @enderror
-                    </div>
-
+                    </div> --}}
 
                     <div class="field">
                         <label for="address">Address</label>

@@ -22,7 +22,7 @@
                 </section>
                 <section class="product-page-details">
                     <p class="p-title">{{$product->title}}</p>
-                    <p class="p-price">{{$product->price/100}}</p>
+                    <p class="p-price">Visit Charges : {{$product->price}}</p>
                     <p class="p-category">{{$product->category->name}}</p>
                     <p class="p-description">{{$product->description}}</p>
                     <form action="{{route('addToCart',$product->id)}}" method="post">
@@ -31,7 +31,7 @@
                             <div class="p-colors">
                                 <label for="color">Availability</label>
                                 <select name="color" id="color" required>
-                                    <option value="">-- Availability --</option>
+                                    <option value="">-- Select Timing --</option>
                                     @foreach ($product->colors as $color)
                                         <option value="{{$color->id}}">{{$color->name}}</option>
                                     @endforeach

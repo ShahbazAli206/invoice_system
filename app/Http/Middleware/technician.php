@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class technician
 {
     /**
@@ -16,30 +17,19 @@ class technician
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect('/login');
         }
 
-        $user=Auth::user();
-        if($user->role ==3){
+        $user = Auth::user();
+        if ($user->role == 3) {
             return $next($request);
-
         }
-        if($user->role ==2){
+        if ($user->role == 1) {
             return redirect('/adminpanel');
-
         }
-        if($user->role ==1){
+        if ($user->role == 2) {
             return redirect('/pages/home');
-
         }
-        // if($user->role ==4){
-        //     return redirect('/staff');
-
-        // }
-        // if($user->role ==5){
-        //     return redirect('/client');
-
-        // }    
     }
 }

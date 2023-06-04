@@ -52,7 +52,10 @@ Route::post('/sanctum/token', function (Request $request) {
     return response($response, 201);
 });
 
-Route::get('/home_data', [PagesController::class, 'home_data']);
+Route::get(
+    '/home_data',
+    [PagesController::class, 'home_data']
+);
 
 Route::get('/tables/{table}', function ($table) {
     $data = DB::table($table)->get();
@@ -96,6 +99,33 @@ Route::get('/order_status/{userId}', function ($userId) {
             ];
         }
     }
+    return response()->json($data);
+});
+
+Route::get('/tech_orders/{id}', function ($id) {
+    $cat_ord = DB::table('items')->where('category_id', $id)->get();
+
+    Log::error(' The technicina is is ==>  ' . $id);
+    Log::error(' The lis of orders categroy based are  ==>  ' . $cat_ord);
+    $data = [];
+
+    foreach ($cat_ord as $item) {
+        $order = DB::table('orders')
+            ->where('id', $item->order_id)
+            ->where('status', 'shipped')
+            ->first();
+        if ($order !== null) { {
+                $data[] = [
+                    'order_id' => $order->id,
+                    'address' => $order->address,
+                    'status' => $order->status,
+                    'job' => $item->quantity,
+                ];
+            }
+        }
+    }
+    Log::error(' The response is ready as  ==>  ' . json_encode($data));
+
     return response()->json($data);
 });
 
@@ -185,7 +215,6 @@ Route::delete('/wishlist_remove/{user_id}/{id}', function ($user_id, $id) {
     return response()->json(['success' => true]);
 });
 
-
 Route::put('/orders/{id}', function ($id) {
     $order = DB::table('orders')->where('id', $id)->first();
 
@@ -197,6 +226,19 @@ Route::put('/orders/{id}', function ($id) {
     return response()->json(['message' => 'Order updated successfully']);
 });
 
+Route::put('/orders/{id}/status', function ($id) {
+    $order = Order::find($id);
+
+    if (!$order) {
+        return response()->json(['message' => 'Order not found'], 404);
+    }
+
+    $order->status = 'accept';
+    $order->save();
+
+    return response()->json(['message' => 'Order status updated successfully']);
+});
+
 Route::get('/orders', function () {
     $orders = DB::table('orders')
         ->orderByDesc('updated_at')
@@ -206,10 +248,7 @@ Route::get('/orders', function () {
 
 Route::put('/order_update/{orderId}', function ($orderId) {
     $order = Order::find($orderId);
-    Log::error(" finding Order through id  =>   " . $order);
     $updatedColumns = request()->all();
-    Log::error(" got the colloumns to update  =>   ");
-    Log::error($updatedColumns);
     $order->update($updatedColumns);
     return response()->json(['message' => 'Order updated successfully.']);
 });
@@ -227,6 +266,7 @@ Route::put('/category_update/{orderId}', function ($categoryId) {
 
     return response()->json(['message' => 'Order updated successfully.']);
 });
+
 Route::post('/category_add', function (Request $request) {
     $category = new Category;
     $category->name = $request->name;

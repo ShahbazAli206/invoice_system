@@ -22,13 +22,9 @@
                                 <tr>
                                     <th>id</th>
                                     <th>name</th>
-                                    <th>email</th>
-                                    <th>phone</th>
                                     <th>address</th>
-                                    <th>Category</th>
                                     <th>Status</th>
                                     <th>Action</th>
-                                    <th>Accept</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,10 +32,7 @@
                                 <tr>
                                     <td>{{$order->id}}</td>
                                     <td>{{$order->name}}</td>
-                                    <td>{{$order->email}}</td>
-                                    <td>{{$order->phone}}</td>
                                     <td>{{$order->address}}</td>
-                                    <td>{{$order->country}}</td>
                                     <td>
                                         <span class="badge bg-@if($order->status == 'accepted')success
                                              @endif
@@ -59,11 +52,6 @@
                                     </div>
                                     
                                 </td>
-                                    <td>
-                                         <div class="d-flex mt-2" style="gap: 5px">
-                                            <a href="{{route('technicianpanel.pages.view',$order->id)}}" class="btn btn-secondary">View</a>
-                                        </div>
-                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
