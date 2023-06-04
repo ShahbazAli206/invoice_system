@@ -1,4 +1,6 @@
 
+
+
 <?php $__env->startSection('title', 'confirmed'); ?>
 <?php $__env->startSection('content'); ?>
 <h1 class="page-title">Technician Profile</h1>
@@ -11,7 +13,7 @@
                 <div class="card-header">
                     <h5>Technician Profile Picture</h5>
                 </div>
-                <div class="card-body" style="background-color: rgb(90, 88, 245)">
+                <div class="card-body" style="background-color: rgb(137, 100, 162)">
                     <img src="<?php echo e(asset('storage/'.Auth::user()->profile_photo_path)); ?>" alt="..." class="w-100 border-radius-lg shadow-sm">
                 </div>
             </div>
@@ -21,10 +23,10 @@
                 <div class="card-header">
                     <h5>Technician Information</h5>
                 </div>
-                <div class="card-body" style="background-color:rgb(90, 88, 245)">
-                    <p ><strong style="color: rgb(38, 9, 47)"> Name: <?php echo e(Auth::user()->name); ?></strong></p>
-                    <p ><strong style="color: rgb(38, 9, 47)"> Email: <?php echo e(Auth::user()->email); ?></strong></p>
-                    <p ><strong style="color: rgb(38, 9, 47)"> Phone Number: <?php echo e(Auth::user()->ph_no); ?></strong></p>
+                <div class="card-body" style="background-color: rgb(137, 100, 162)">
+                    <p style="color: purple" class="text-primary">Name: <?php echo e(Auth::user()->name); ?></p>
+                    <p style="color: purple">Email: <?php echo e(Auth::user()->email); ?></p>
+                    <p style="color: purple">Phone Number: <?php echo e(Auth::user()->ph_no); ?></p>
                     <div class="d-flex mt-2">
                         <a href="<?php echo e(route('technicianpanel.pages.profile')); ?>"><button class="btn btn-primary">Edit Profile</button></a>
                     </div>

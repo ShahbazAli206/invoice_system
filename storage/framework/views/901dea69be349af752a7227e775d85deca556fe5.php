@@ -38,7 +38,8 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <form action="<?php echo e(route('technicianpanel.store',$order->id)); ?>" method="post">
+                                        <form action="<?php echo e(route('technicianpanel.status.update',$order->id)); ?>" method="post">
+                                            <?php echo method_field('PUT'); ?>
                                             <?php echo csrf_field(); ?>
                                            
                                             

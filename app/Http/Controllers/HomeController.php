@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-   
+
     public function public()
     {
         return view('public');
@@ -27,35 +27,39 @@ class HomeController extends Controller
     }
     public function read()
     {
-        $PublicContact= PublicContact::all();
-        return view('publicmsgs')->with(['PublicContact'=> $PublicContact]);
+        $PublicContact = PublicContact::all();
+        return view('publicmsgs')->with(['PublicContact' => $PublicContact]);
     }
     public function delete($id)
     {
         PublicContact::destroy($id);
         return back()->with('success', 'Message Deleted');
     }
-   
+
     public function home()
     {
         $user = User::find(1);
         $services = DB::table('services')->count();
         $orders = DB::table('orders')->count();
-        $categories = DB::table('categories')->count();
-        $users = DB::table('users')->where('role', 1)->count();
-        return view('dashboard', compact('services', 'orders', 'categories', 'users'));
-    }
-    
+        $users = DB::table('users')->where('role', 2)->count();
+        $technicians = DB::table('users')->where('role', 3)->count();
 
-    public function chat(){
+        return view('dashboard', compact('services', 'orders', 'technicians', 'users'));
+    }
+
+
+    public function chat()
+    {
         return view('chat');
     }
 
-    public function messages(){
+    public function messages()
+    {
         return Message::with('user')->get();
     }
 
-    public function messageStore(Request $request){
+    public function messageStore(Request $request)
+    {
         $user = Auth::user();
 
         $messages = $user->messages()->create([
@@ -67,7 +71,3 @@ class HomeController extends Controller
         return 'message sent';
     }
 }
-
-
-    
-

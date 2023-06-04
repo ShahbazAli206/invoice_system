@@ -41,7 +41,8 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <form action="{{route('technicianpanel.store',$order->id)}}" method="post">
+                                        <form action="{{route('technicianpanel.status.update',$order->id)}}" method="post">
+                                            @method('PUT')
                                             @csrf
                                            
                                             

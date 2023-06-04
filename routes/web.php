@@ -78,7 +78,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/logout', [SessionsController::class, 'destroy']);
     Route::get('/user-profile', [InfoUserController::class, 'create']);
     Route::post('/user-profile', [InfoUserController::class, 'store']);
-    // Route::get('/login', function () {return view('dashboard');})->name('sign-up')
 
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('adminpanel.categories');
@@ -155,11 +154,11 @@ Route::group(['middleware' => 'technician'], function () {
         Route::get('/', [TechnicianController::class, 'dashboard'])->name('technicianpanel');
         Route::get('/introduction', [TechnicianController::class, 'intro'])->name('technicianpanel.introduction');
         Route::get('/technician/pages/view/{id}', [TechnicianController::class, 'view'])->name('technicianpanel.pages.view');
-        // Route::post('/', [TechnicianController::class, 'store'])->name('technicianpanel.store');
-        Route::post('/{id}', [TechnicianController::class, 'store'])->name('technicianpanel.store');
+        Route::post('/', [TechnicianController::class, 'store'])->name('technicianpanel.store');
 
         Route::get('/confirmed', [TechnicianController::class, 'confirmed'])->name('technicianpanel.confirmed');
         Route::put('/{id}', [TechnicianController::class, 'updateStatus'])->name('technicianpanel.status.update');
+
         Route::get('/profile', [TechProfileController::class, 'create'])->name('technicianpanel.pages.profile');
         Route::post('/profile', [TechProfileController::class, 'store'])->name('technicianpanel.pages.store');
     });

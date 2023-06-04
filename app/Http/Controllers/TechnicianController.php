@@ -29,7 +29,7 @@ class TechnicianController extends Controller
         $order = DB::select('SELECT o.* FROM orders AS o
         INNER JOIN items AS i ON o.id = i.order_id
         WHERE o.status = ? AND i.category_id = ?', ['shipped', $categ_id]);
-        Log::error('The technician id is ==> ' . json_encode($order));
+        // Log::error('The technician id is ==> ' . json_encode($order));
 
         return view('technician.pages.dashboard')->with(['order' => $order]);
     }
@@ -39,9 +39,12 @@ class TechnicianController extends Controller
         $order = Order::with('user', 'items', 'items.services', 'items.color')->findOrFail($id);
         return view('technician.pages.view', ['order' => $order, 'states' => $states]);
     }
-    public function store($id, Request $request)
+    public function store(Request $request)
     {
-        Order::findOrFail($id)->update(['status' => 'accepted']);
+        Log::error('\n\n\n sabh ggggggg  ==> ' . json_encode($request->order));
+
+
+        // Order::findOrFail($request->order->id)->update(['status' => 'accepted']);
         return back()->with('success', ' Order has been Accepted');
     }
 
@@ -50,10 +53,10 @@ class TechnicianController extends Controller
         $orderconfirm = orderconfirm::all();
         return view('technician.pages.confirmed')->with(['orderconfirm' => $orderconfirm]);
     }
-    public function updateStatus($id, Request $request)
+    public function updateStatus($id)
     {
-        Order::findOrFail($id)->update(['status' => $request->status]);
-        return back()->with('success', 'Order Updated!');
+        Order::findOrFail($id)->update(['status' => 'accepted']);
+        return back()->with('success', 'status Updated!');
     }
 
     public function chat()

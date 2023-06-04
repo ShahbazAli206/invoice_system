@@ -33,20 +33,20 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Available Categories </p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Registered Technicians </p>
                 <h5 class="font-weight-bolder mb-0">
-                  {{$categories}}
+                  {{$technicians}}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<lord-icon
-    src="https://cdn.lordicon.com/zvllgyec.json"
-    trigger="hover"
-    colors="primary:#121331"
-    style="width:52px;height:52px">
-</lord-icon>
+              <lord-icon
+                  src="https://cdn.lordicon.com/sbiheqdr.json"
+                  trigger="hover"
+                  colors="primary:#121331,secondary:#08a88a"
+                  style="width:52px;height:52px">
+              </lord-icon>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Technicians</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Services</p>
                 <h5 class="font-weight-bolder mb-0">
                   {{$services}}
                   <span class="text-danger text-sm font-weight-bolder"></span>
@@ -70,12 +70,14 @@
               </div>
             </div> --}}
             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-              <lord-icon
-                  src="https://cdn.lordicon.com/sbiheqdr.json"
-                  trigger="hover"
-                  colors="primary:#121331,secondary:#08a88a"
-                  style="width:52px;height:52px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/zvllgyec.json"
+                trigger="hover"
+                colors="primary:#121331"
+                style="width:52px;height:52px">
+            </lord-icon>
+            
+            
           </div>
         </div>
       </div>

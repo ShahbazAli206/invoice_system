@@ -1,4 +1,5 @@
 
+
 <?php $__env->startSection('title', 'Edit Profile'); ?>
 <?php $__env->startSection('content'); ?>
 <h1 class="page-title">Edit Technician Profile</h1>
@@ -13,12 +14,12 @@
                 <div class="card-header">
                     <h5>Edit profile here</h5>
                 </div>
-                <form action="<?php echo e(route('technicianpanel.pages.store')); ?>" method="post" role="form text-left" enctype="multipart/form-data"  style="background-color: rgb(90, 88, 245)">
+                <form action="<?php echo e(route('technicianpanel.pages.store')); ?>" method="post" role="form text-left" enctype="multipart/form-data"  style="background-color: rgb(115, 79, 141)">
                     <?php echo csrf_field(); ?>
                 <div class="card-body" >
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-name" class="form-control-label"><strong> <?php echo e(__('Full Name')); ?></strong></label>
+                                <label for="user-name" class="form-control-label"><?php echo e(__('Full Name')); ?></label>
                                 <div class="<?php $__errorArgs = ['user.name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -43,7 +44,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label"><strong><?php echo e(__('Email')); ?></strong></label>
+                                <label for="user-email" class="form-control-label"><?php echo e(__('Email')); ?></label>
                                 <div class="<?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -68,7 +69,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label"><strong><?php echo e(__('Phone Number')); ?></strong></label>
+                                <label for="user-email" class="form-control-label"><?php echo e(__('Phone Number')); ?></label>
                                 <div class="<?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -92,7 +93,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="user.phone" class="form-control-label"><strong><?php echo e(__('Profile Image')); ?></strong></label>
+                            <label for="user.phone" class="form-control-label"><?php echo e(__('Profile Image')); ?></label>
                             <div class="<?php $__errorArgs = ['user.phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -115,7 +116,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                         <div class="d-flex justify-content">
-                            <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4"><?php echo e('Update'); ?></button>
+                            <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4"><?php echo e('Save Changes'); ?></button>
                         </div>
                 </div>
             </form>

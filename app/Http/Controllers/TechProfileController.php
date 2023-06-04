@@ -21,9 +21,12 @@ class TechProfileController extends Controller
             'name' => ['required', 'max:50'],
             'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore(Auth::user()->id)],
             'profile_photo_path' => ['nullable', 'image', 'max:2048'], // add validation rules for profile_image
-            'ph_no' => ['required', 'max:11'],
-        ]);
+            'ph_no' => ['required', 'max:20'],
 
+            // 'phone'     => ['max:50'],
+            // 'location' => ['max:70'],
+            // 'about_me'    => ['max:150'],
+        ]);
         if ($request->get('email') != Auth::user()->email) {
             if (env('IS_DEMO') && Auth::user()->id == 1) {
                 return redirect()->back()->withErrors(['msg2' => 'You are in a demo version, you can\'t change the email address.']);
@@ -45,6 +48,10 @@ class TechProfileController extends Controller
             'email' => $attributes['email'],
             'profile_photo_path' => $path ?? Auth::user()->profile_photo_path,
             'ph_no'    => $attributes['ph_no'],
+
+            // 'phone'     => $attributes['phone'],
+            // 'location' => $attributes['location'],
+            // 'about_me'    => $attributes["about_me"],
         ]);
 
 
