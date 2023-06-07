@@ -1,6 +1,6 @@
-@extends('layouts.technician')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <div>
     <h1 class="page-title">Show Order</h1>
@@ -21,15 +21,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($order as $order)
-                                    @if ($order->status == 'accepted')
+                                <?php $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($order->status == 'accepted'): ?>
                                         <tr>
-                                            <td>{{$order->id}}</td>
-                                            <td>{{$order->status}}</td>
-                                            <td>{{\Carbon\Carbon::parse($order->created_at)->format('Y-m-d H:i:s')}}</td>
+                                            <td><?php echo e($order->id); ?></td>
+                                            <td><?php echo e($order->status); ?></td>
+                                            <td><?php echo e(\Carbon\Carbon::parse($order->created_at)->format('Y-m-d H:i:s')); ?></td>
                                         </tr>
-                                    @endif
-                                @endforeach
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -39,4 +39,6 @@
     </div>
 </div>
  
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.technician', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\group_repo\resources\views/technician/pages/confirmed.blade.php ENDPATH**/ ?>

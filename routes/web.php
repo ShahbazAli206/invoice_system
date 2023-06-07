@@ -49,11 +49,9 @@ Route::get('/home', [App\Http\Controllers\IndexController::class, 'index'])->nam
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/adminpanel', [HomeController::class, 'home'])->name('adminpanel');
+    // Route::get('/adminpanel', [HomeController::class, 'getTotalServices'])->name('adminpanel');
     Route::get('msgs', [HomeController::class, 'read'])->name('msgs');
     Route::delete('msgs/{id}', [HomeController::class, 'delete'])->name('msgs.delete');
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
     Route::get('billing', function () {
         return view('billing');
     })->name('billing');
@@ -155,6 +153,7 @@ Route::group(['middleware' => 'technician'], function () {
         Route::get('/introduction', [TechnicianController::class, 'intro'])->name('technicianpanel.introduction');
         Route::get('/technician/pages/view/{id}', [TechnicianController::class, 'view'])->name('technicianpanel.pages.view');
         Route::post('/', [TechnicianController::class, 'store'])->name('technicianpanel.store');
+        
 
         Route::get('/confirmed', [TechnicianController::class, 'confirmed'])->name('technicianpanel.confirmed');
         Route::put('/{id}', [TechnicianController::class, 'updateStatus'])->name('technicianpanel.status.update');

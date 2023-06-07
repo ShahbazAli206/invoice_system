@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Message;
+use App\Models\Services;
 use App\Events\SendMessage;
-use App\Models\PublicContact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\PublicContact;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -43,9 +45,27 @@ class HomeController extends Controller
         $orders = DB::table('orders')->count();
         $users = DB::table('users')->where('role', 2)->count();
         $technicians = DB::table('users')->where('role', 3)->count();
+        $chartData = Order::select(DB::raw('COUNT(*) as count'))
+            ->groupBy(DB::raw('YEAR(created_at)'))
+            ->pluck('count')
+            ->toArray();
 
-        return view('dashboard', compact('services', 'orders', 'technicians', 'users'));
+        return view('dashboard', compact('services', 'orders', 'technicians', 'users', 'chartData'));
     }
+   
+    
+    public function showServiceOrders()
+    {
+    $chartData = Order::select(DB::raw('COUNT(*) as count'))
+        ->groupBy(DB::raw('YEAR(created_at)'))
+        ->pluck('count')
+        ->toArray();
+
+    return view('dashboard', ['chartData' => $chartData]);  
+    }
+
+
+
 
 
     public function chat()

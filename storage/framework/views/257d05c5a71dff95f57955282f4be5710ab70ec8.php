@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-@if (\Request::is('rtl'))
+<?php if(\Request::is('rtl')): ?>
   <html dir="rtl" lang="ar">
-@else
+<?php else: ?>
   <html lang="en" >
-@endif
+<?php endif; ?>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,9 +12,22 @@
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-  @if (env('IS_DEMO'))
-      <x-demo-metas></x-demo-metas>
-  @endif
+  <?php if(env('IS_DEMO')): ?>
+      <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.demo-metas','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('demo-metas'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?> <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+  <?php endif; ?>
 
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/ali_logo.png">
@@ -32,23 +45,23 @@
   
 </head>
 
-<body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+<body class="g-sidenav-show  bg-gray-100 <?php echo e((\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : ''))); ?> ">
   
-  @auth
-    @yield('auth')
-  @endauth
-  @guest
-    @yield('guest')
-  @endguest
+  <?php if(auth()->guard()->check()): ?>
+    <?php echo $__env->yieldContent('auth'); ?>
+  <?php endif; ?>
+  <?php if(auth()->guard()->guest()): ?>
+    <?php echo $__env->yieldContent('guest'); ?>
+  <?php endif; ?>
 
-  @if(session()->has('success'))
+  <?php if(session()->has('success')): ?>
     <div x-data="{ show: true}"
         x-init="setTimeout(() => show = false, 4000)"
         x-show="show"
         class="position-fixed bg-success rounded right-3 text-sm py-2 px-4">
-      <p class="m-0">{{ session('success')}}</p>
+      <p class="m-0"><?php echo e(session('success')); ?></p>
     </div>
-  @endif
+  <?php endif; ?>
     <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -58,8 +71,8 @@
   <script src="../assets/js/plugins/chartjs.min.js"></script>
 
 
-  @stack('rtl')
-  @stack('dashboard')
+  <?php echo $__env->yieldPushContent('rtl'); ?>
+  <?php echo $__env->yieldPushContent('dashboard'); ?>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -84,3 +97,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\group_repo\resources\views/layouts/app.blade.php ENDPATH**/ ?>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('role'); //superadmin=1, admin=2, depthead=3, 
+            $table->integer('category_id'); 
             $table->string('password');
             $table->rememberToken();
             $table->string('profile_photo_path', 2048)->nullable();

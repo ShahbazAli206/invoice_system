@@ -640,7 +640,6 @@ class ComposerStaticInitef91529bf6b71ff0e7f82595d14630a1
         'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
-        'App\\Http\\Controllers\\PublicmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/PublicmailController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
         'App\\Http\\Controllers\\ResetController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResetController.php',
         'App\\Http\\Controllers\\ResidentProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResidentProfileController.php',

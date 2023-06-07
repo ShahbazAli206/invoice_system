@@ -41,6 +41,12 @@ class TechnicianController extends Controller
     }
     public function store(Request $request)
     {
+        $user = User::all();
+        $orderconfirm = orderconfirm::all();
+        $orderconfirm = new orderconfirm;
+        $orderconfirm->status = 'accepted';
+        $orderconfirm->save();
+        Notification::send($user, new TechOrderNotification($request->id));
         Log::error('\n\n\n sabh ggggggg  ==> ' . json_encode($request->order));
 
 
@@ -50,8 +56,8 @@ class TechnicianController extends Controller
 
     public function confirmed()
     {
-        $orderconfirm = orderconfirm::all();
-        return view('technician.pages.confirmed')->with(['orderconfirm' => $orderconfirm]);
+        $order = order::all();
+        return view('technician.pages.confirmed')->with(['order' => $order]);
     }
     public function updateStatus($id)
     {
