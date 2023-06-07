@@ -1,4 +1,4 @@
-@extends('layouts.user_type.auth')
+{{-- @extends('layouts.user_type.auth')
 
 @section('content')
 
@@ -797,4 +797,4 @@
     }
   </script>
   <script src="../assets/js/plugins/choices.min.js"></script>
-@endpush
+@endpush --}}

@@ -95,7 +95,7 @@
       <div class="row mt-lg-n10 mt-md-n11 mt-n10">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
           <div class="card z-index-0">
-            <div class="card-header text-center pt-4">
+            {{-- <div class="card-header text-center pt-4">
               <h5>Register with</h5>
             </div>
             <div class="row px-xl-5 px-sm-4 px-3">
@@ -141,7 +141,7 @@
                   or
                 </p>
               </div>
-            </div>
+            </div> --}}
             <div class="card-body">
               {{-- <form role="form text-left" method="POST" action="/register"> --}}
                 <form method="POST" action="{{ route('register') }}">
@@ -158,7 +158,7 @@
                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <div>
                     <input type="password" class="form-control" placeholder="Password" name="password" id="password" aria-label="Password" aria-describedby="password-addon">
                     @error('password')
                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -178,7 +178,7 @@
                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                   @enderror
                 </div>
-                <div class="form-check form-check-info text-left">
+                {{-- <div class="form-check form-check-info text-left">
                   <input class="form-check-input" type="checkbox" name="agreement" id="flexCheckDefault" checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
@@ -186,7 +186,7 @@
                   @error('agreement')
                     <p class="text-danger text-xs mt-2">First, agree to the Terms and Conditions, then try register again.</p>
                   @enderror
-                </div>
+                </div> --}}
                 <div class="text-center">
                   {{-- <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button> --}}
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">

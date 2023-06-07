@@ -104,6 +104,7 @@ input,
 textarea,
 button {
     display: block;
+    
 }
 
 input,
@@ -117,7 +118,7 @@ textarea {
     padding: 15px 0;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 20px;
 }
 
 ::-webkit-input-placeholder { color: white; } /* Edge */
@@ -135,6 +136,7 @@ textarea {
 }
 
 .tm-btn-submit:hover { color: #000000; }
+
 
 .tm-social-link {
     width: 40px;
@@ -280,35 +282,14 @@ address { font-style: normal; }
 <li>
   <div>
     <a href="{{route('login')}}">
-      {{-- <svg xmlns="://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M472 48H40a24.028 24.028 0 0 0-24 24v368a24.028 24.028 0 0 0 24 24h88v-58.822a20.01 20.01 0 0 1 10.284-17.478l91.979-51.123L200 260.919V200a56 56 0 0 1 112 0v60.919l-30.263 75.655l91.979 51.126A20.011 20.011 0 0 1 384 405.178V464h88a24.028 24.028 0 0 0 24-24V72a24.028 24.028 0 0 0-24-24Zm-8 384h-48v-26.822a52.027 52.027 0 0 0-26.738-45.451L321.915 322.3L344 267.081V200a88 88 0 0 0-176 0v67.081l22.085 55.219l-67.347 37.432A52.027 52.027 0 0 0 96 405.178V432H48V80h416Z"/></svg> --}}
       <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-      <lord-icon
-      src="https://cdn.lordicon.com/dxjqoygy.json"
-      trigger="hover"
-      colors="primary:#121331,secondary:#08a88a"
-      stroke="35"
-      state="hover-nodding"
-      style="width:150px;height:150px">
-    </lord-icon>
-  </a>            {{-- <div class="multi-login-option">
-    
-    
-    <form action="{{route('adminpanel')}}"method='get'>
-      @csrf
-      <button class="asd" type="submit">Admin</button>
-    </form>
-    
-    <form action="{{route('home')}}"method='get'>
-      @csrf
-      <button class="asd" type="submit">Resident</button>
-    </form>
-    
-    <form action="{{route('technicianpanel')}}"method='get'>
-      @csrf
-      <button class="asd" type="submit">Technician</button>
-    </form>
-    
-  </div> --}}
+<lord-icon
+    src="https://cdn.lordicon.com/uiakkykh.json"
+    trigger="hover"
+    colors="primary:#121331"
+    style="width:27px;height:27px">
+</lord-icon>
+  </a>            
   
 </div>
 </li>
@@ -386,7 +367,7 @@ address { font-style: normal; }
       <footer id="S3" class="mb-50">
         <div class="main-content">
         <div class="left box">
-          <h2>About us</h2>
+          <h2 style="color: #EEEDE7">About us</h2>
           <div class="content">
             <p>Ghar Bar service is the official portal of the society {the one the main branches of multi_Gargen societies}</p>
             We will update the resident and all connected peoples about our upcoming packages and Jobs opportunities through this portal. will try to to communicate our residents through complaint portal.
@@ -399,7 +380,7 @@ address { font-style: normal; }
             </div>
           </div>
           <div class="center box">
-            <h2>Address</h2>
+            <h2 style="color: #EEEDE7">Address</h2>
             <div class="content">
               <div class="place">
                 <span class="fas fa-map-marker-alt"></span>
@@ -416,7 +397,7 @@ address { font-style: normal; }
             </div>
           </div>
           <div class="right box">
-            <h2 style="color: wh">Contact us</h2>
+            <h2 style="color: #EEEDE7">Contact us</h2>
             <div class="content">
               <form action="{{ route ('public.store') }}" method="post">
                 @csrf
@@ -441,8 +422,8 @@ address { font-style: normal; }
               </div>
               <br>
 
-              <div class="btn-secondary">
-                <input type="submit" value="Submit" class="btn btn-success">
+              <div class="">
+                <input type="submit" value="Submit" class="btn btn-primary" style="width:150px">
               </div>
               </form>
 

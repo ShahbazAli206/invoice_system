@@ -104,6 +104,7 @@ input,
 textarea,
 button {
     display: block;
+    
 }
 
 input,
@@ -117,7 +118,7 @@ textarea {
     padding: 15px 0;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 20px;
 }
 
 ::-webkit-input-placeholder { color: white; } /* Edge */
@@ -135,6 +136,7 @@ textarea {
 }
 
 .tm-btn-submit:hover { color: #000000; }
+
 
 .tm-social-link {
     width: 40px;
@@ -280,16 +282,13 @@ address { font-style: normal; }
 <li>
   <div>
     <a href="<?php echo e(route('login')); ?>">
-      
       <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-      <lord-icon
-      src="https://cdn.lordicon.com/dxjqoygy.json"
-      trigger="hover"
-      colors="primary:#121331,secondary:#08a88a"
-      stroke="35"
-      state="hover-nodding"
-      style="width:150px;height:150px">
-    </lord-icon>
+<lord-icon
+    src="https://cdn.lordicon.com/uiakkykh.json"
+    trigger="hover"
+    colors="primary:#121331"
+    style="width:27px;height:27px">
+</lord-icon>
   </a>            
   
 </div>
@@ -361,7 +360,7 @@ address { font-style: normal; }
       <footer id="S3" class="mb-50">
         <div class="main-content">
         <div class="left box">
-          <h2>About us</h2>
+          <h2 style="color: #EEEDE7">About us</h2>
           <div class="content">
             <p>Ghar Bar service is the official portal of the society {the one the main branches of multi_Gargen societies}</p>
             We will update the resident and all connected peoples about our upcoming packages and Jobs opportunities through this portal. will try to to communicate our residents through complaint portal.
@@ -374,7 +373,7 @@ address { font-style: normal; }
             </div>
           </div>
           <div class="center box">
-            <h2>Address</h2>
+            <h2 style="color: #EEEDE7">Address</h2>
             <div class="content">
               <div class="place">
                 <span class="fas fa-map-marker-alt"></span>
@@ -391,7 +390,7 @@ address { font-style: normal; }
             </div>
           </div>
           <div class="right box">
-            <h2 style="color: wh">Contact us</h2>
+            <h2 style="color: #EEEDE7">Contact us</h2>
             <div class="content">
               <form action="<?php echo e(route ('public.store')); ?>" method="post">
                 <?php echo csrf_field(); ?>
@@ -406,8 +405,8 @@ address { font-style: normal; }
               </div>
               <br>
 
-              <div class="btn-secondary">
-                <input type="submit" value="Submit" class="btn btn-success">
+              <div class="">
+                <input type="submit" value="Submit" class="btn btn-primary" style="width:150px">
               </div>
               </form>
 
