@@ -10,10 +10,10 @@
     <h1>Welcome {{ $user->name }}</h1>
     <h1> You are succefully registered as a 
         @if ($user->role === '1')
-            Resident
+            Admin
             
         @elseif ($user->role === '2')
-            Admin
+            Resident
         @elseif ($user->role === '3')
             Technician
         @endif
