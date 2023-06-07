@@ -401,17 +401,7 @@ address { font-style: normal; }
             <div class="content">
               <form action="{{ route ('public.store') }}" method="post">
                 @csrf
-                {{-- <div class="email">
-                  <div for="email" class="text" >Email *</div>
-                  <input type="email" id="email">
-                </div>
-                <div class="msg">
-                  <div for="msg" class="text">Message *</div>
-                  <textarea id="msg" rows="2" cols="25" required></textarea>
-                </div>
-                <div class="btn">
-                  <button type="submit" class="btn btn-success">Send</button>
-                </div> --}}
+               
                 <div class="email">
                 <label for="email" class="text"> Email &nbsp;</label>
                 <input type="text" id="email" name="email" placeholder="email" >
