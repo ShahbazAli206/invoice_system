@@ -18,7 +18,11 @@
     <a href="{{route('product', $product->id)}}">
         <div class="product-title">{{$product->title}}</div>
         <div class="product-title">
-           {{$product->category->name}}
+           @isset($product['category']['name'])
+        <?php $categoryName = $product['category']['name']; ?>
+        {{ $categoryName }} <br>
+    @endisset
+           {{-- {{$product['category']['name']}} --}}
         </div>
      <div class="color-plateletes">
         @foreach ($product->colors as $color)    

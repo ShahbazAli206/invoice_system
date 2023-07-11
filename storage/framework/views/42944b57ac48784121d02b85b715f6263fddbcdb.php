@@ -18,8 +18,11 @@
     <a href="<?php echo e(route('product', $product->id)); ?>">
         <div class="product-title"><?php echo e($product->title); ?></div>
         <div class="product-title">
-           <?php echo e($product->category->name); ?>
-
+           <?php if(isset($product['category']['name'])): ?>
+        <?php $categoryName = $product['category']['name']; ?>
+        <?php echo e($categoryName); ?> <br>
+    <?php endif; ?>
+           
         </div>
      <div class="color-plateletes">
         <?php $__currentLoopData = $product->colors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>    

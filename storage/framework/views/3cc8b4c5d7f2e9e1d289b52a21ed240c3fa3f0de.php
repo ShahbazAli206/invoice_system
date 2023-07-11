@@ -1,7 +1,5 @@
 
 
-
-
 <?php $__env->startSection('content'); ?>
 
   <section class="min-vh-100 mb-8"  style="background-color:aquamarine">
@@ -19,9 +17,7 @@
       <div class="row mt-lg-n10 mt-md-n11 mt-n10">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
           <div class="card z-index-0">
-            
             <div class="card-body">
-              
                 <form method="POST" action="<?php echo e(route('register')); ?>">
                 <?php echo csrf_field(); ?>
                 <div class="mb-3">
@@ -71,9 +67,20 @@ unset($__errorArgs, $__bag); ?>
                     <input id="password-confirm" type="password" class="form-control" placeholder="Confirm-Password" name="password_confirmation" required autocomplete="new-password">
                 </div>
 
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="role" name="role" id="role" aria-label="role" aria-describedby="role" value="<?php echo e(old('role')); ?>">
-                  <?php $__errorArgs = ['role'];
+                
+                <select name="role" id="role" class="form-control style="color: rgb(0, 0, 0); font-size: 18px;" <?php $__errorArgs = ['category_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
+                  <option value="0" style="color: rgb(0, 0, 0); font-size: 18px;">Select Your Role</option>
+                  <option value="1"style="color: rgb(0, 0, 0); font-size: 18px;">admin</option>
+                  <option value="3" style="color: rgb(0, 0, 0); font-size: 18px;">restaurent</option>
+                  <option value="2"style="color: rgb(0, 0, 0); font-size: 18px;">customer</option>
+                      <?php $__errorArgs = ['role'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -82,11 +89,11 @@ $message = $__bag->first($__errorArgs[0]); ?>
                   <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>
-                </div>
-                
+unset($__errorArgs, $__bag); ?>                               
+              </select>
+ 
+              
                 <div class="text-center">
-                  
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">
                     <?php echo e(__('Register')); ?>
 

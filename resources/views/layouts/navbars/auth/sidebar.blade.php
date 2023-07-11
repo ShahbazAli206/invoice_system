@@ -61,7 +61,7 @@
         </a>
       </li>
       <li class="nav-item mt-2">
-        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Technician Handling</h6>
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Orders Managemnet</h6>
       </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ route('adminpanel.technicians') }}">
@@ -74,10 +74,25 @@
                 trigger="hover"
                 colors="primary:#121331,secondary:#08a88a"
                 style="width:40px;height:40px">
-            </lord-icon>
-            <span class="nav-link-text ms-1">Technician </span>
-        </a>
-      </li>
+              </lord-icon>
+              <span class="nav-link-text ms-1">Restaurant </span>
+            </a>
+          </li>
+          <li class="nav-item pb-2">
+            <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{route('adminpanel.Customers')}}">
+                {{-- <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                </div> --}}
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/zpxybbhl.json"
+                    trigger="hover"
+                    colors="primary:#121331,secondary:#08a88a"
+                    style="width:40px;height:40px">
+                </lord-icon>
+                <span class="nav-link-text ms-1">Customers</span>
+            </a>
+          </li>
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{route('adminpanel.categories')}}">
             {{-- <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -122,21 +137,6 @@
             <span class="nav-link-text ms-1">Email</span>
         </a>
       </li>
-      <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{route('msgs')}}">
-            {{-- <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
-            </div> --}}
-            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-            <lord-icon
-                src="https://cdn.lordicon.com/zpxybbhl.json"
-                trigger="hover"
-                colors="primary:#121331,secondary:#08a88a"
-                style="width:40px;height:40px">
-            </lord-icon>
-            <span class="nav-link-text ms-1">Public Messeges</span>
-        </a>
-      </li>
       {{-- <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{route('chat')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -169,7 +169,7 @@
         </a>
       </li>
       
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link {{ (Request::is('tables') ? 'active' : '') }}" href="{{ url('tables') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -188,10 +188,10 @@
           </div>
           <span class="nav-link-text ms-1">Tables</span>
         </a>
-      </li> --}}
+      </li>
 
       
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link {{ (Request::is('billing') ? 'active' : '') }}" href="{{ url('billing') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -210,10 +210,8 @@
           </div>
           <span class="nav-link-text ms-1">Billing</span>
         </a>
-      </li> --}}
-      
-      
-      {{-- <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link {{ (Request::is('virtual-reality') ? 'active' : '') }}" href="{{ url('virtual-reality') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -233,8 +231,7 @@
           </div>
           <span class="nav-link-text ms-1">Virtual Reality</span>
         </a>
-      </li> --}}
-{{-- 
+      </li>
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('rtl') ? 'active' : '') }}" href="{{ url('rtl') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -255,8 +252,7 @@
           </div>
           <span class="nav-link-text ms-1">RTL</span>
         </a>
-      </li> --}}
-
+      </li>
       <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account management</h6>
       </li>
@@ -281,7 +277,6 @@
           <span class="nav-link-text ms-1">Profile</span>
         </a>
       </li>
-{{--       
       <li class="nav-item">
         <a class="nav-link  " href="{{ url('static-sign-in') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -301,8 +296,8 @@
           </div>
           <span class="nav-link-text ms-1">Sign In</span>
         </a>
-      </li> --}}
-      {{-- <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link  " href="{{ url('static-sign-up') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -323,7 +318,7 @@
           </div>
           <span class="nav-link-text ms-1">Sign Up</span>
         </a>
-      </li> --}}
+      </li>
     </ul>
   </div>
   <div class="sidenav-footer mx-3 mt-7 ">

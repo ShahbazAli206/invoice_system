@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zip');
+            $table->string('note', 20048)->nullable()->default(' ');
             $table->string('country');
             $table->string('total')->default(0);
             $table->string('stripe_id')->default(0);

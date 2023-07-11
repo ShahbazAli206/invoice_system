@@ -15,7 +15,10 @@
                 </a>
             </div>
             <div class="ms-md-3 pe-md-3 d-flex align-items-center">
-            
+            <div class="input-group">
+                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" placeholder="Type here...">
+            </div>
             </div>
             <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
@@ -50,7 +53,7 @@
                     <li class="mb-2">
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                         <div class="d-flex py-1">
-                            Technician Has Accepted the order id: <?php echo e($notification->data['id']); ?> 
+                            Technician Has Accepted the order id: <?php echo e($notification->data['data']); ?> 
                             
                         </div>
                     </a>
@@ -63,7 +66,6 @@
                     </div>
                 </a>
                     <?php endif; ?>
-                
                 </ul>
             </li>
             </ul>

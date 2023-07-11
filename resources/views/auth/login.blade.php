@@ -106,6 +106,12 @@
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                       @enderror
                     </div>
+
+                    @if(session('error'))
+    <div style="color: red; margin-top: 5px;">
+        {{ session('error') }}
+    </div>
+@endif
                     {{-- <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                       <label class="form-check-label" for="rememberMe">Remember me</label>

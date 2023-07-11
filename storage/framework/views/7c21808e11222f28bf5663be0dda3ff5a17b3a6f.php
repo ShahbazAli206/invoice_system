@@ -5,7 +5,6 @@
         <h1>Cart</h1>
         <h3 class="cart-amount"></h3>
     </header>
-    
     <main class="cart-page">
         <div class="container">
             <div class="cart-table">
@@ -16,7 +15,7 @@
                             <th>Time (slected)</th>
                             <th>Charges (Approx)</th>
                             <th>Number of Tasks</th>
-                            <th>Category id</th>
+                            <th>Service id</th>
                             <th>Action</th>
                             
                         </tr>
@@ -36,7 +35,7 @@
                                 <td><?php echo e($item['color']['name']); ?></td>
                                 <td>$<?php echo e($item['product']['price'] / 100); ?></td>
                                 <td><?php echo e($item['quantity']); ?></td>
-                                <td>$<?php echo e($item['category_id']); ?></td>
+                                <td><?php echo e($item['category_id']); ?></td>
                                 <td>
                                     <form action="<?php echo e(route('removeFromCart', $key)); ?>" method="post">
                                         <?php echo csrf_field(); ?>

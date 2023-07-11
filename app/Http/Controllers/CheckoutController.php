@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewOrderPlaced;
+use App\Notifications\DepositSuccessful;
 
 class CheckoutController extends Controller
 {
@@ -26,6 +31,13 @@ class CheckoutController extends Controller
                 'quantity' => $item['quantity'],
 
             ]);
+            Log::error('Cartttttttt' . json_encode($item));
+
+            Log::error('Cartttttttt' . $item['product']['restaurent_id']);
+
+            User::find($item['product']['restaurent_id'])->notify(new NewOrderPlaced($item['product']['title']));
+
+            User::find(Auth::user()->id)->notify(new DepositSuccessful($order->id));
         }
 
         session()->forget('cart');

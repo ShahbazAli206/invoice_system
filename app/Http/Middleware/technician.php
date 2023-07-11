@@ -29,7 +29,7 @@ class technician
             return redirect('/adminpanel');
         }
         if ($user->role == 2) {
-            return redirect('/pages/home');
+            return redirect('/pages/home2');
         }
     }
 }

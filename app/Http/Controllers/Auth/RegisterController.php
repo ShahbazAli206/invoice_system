@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Mail\sendmail;
 use App\Mail\TestMail;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -51,6 +53,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        Log::error(' The registration form email storing to session is this ==>  ' . json_encode($data['email']));
+        session()->put('email', $data['email']);
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -66,19 +71,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $otp = rand(100000, 999999);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' =>  Hash::make($data['password']),
             'role' => $data['role'],
         ]);
-    Mail::to($data['email'])->send(new TestMail($user));
-    return $user;
-    Mail::to($data['name'])->send(new TestMail($user));
-    return $user;
-    Mail::to($data['role'])->send(new TestMail($user));
-    return $user;
-    // Mail::to($data['password'])->send(new TestMail($user));
-    // return $user;
+
+        $userr = User::where('email', '=', $data['email'])->update(['otp' => $otp]);
+
+        if ($userr) {
+
+            $details = [
+                'subject' => 'Testing Application OTP',
+                'body' => 'Your OTP is : ' . $otp
+            ];
+        }
+        Mail::to($data['email'])->send(new sendmail($details));
+
+
+        // Mail::to($data['email'])->send(new TestMail($user));
+        // return $user;
+        // Mail::to($data['name'])->send(new TestMail($user));
+        // return $user;
+        // Mail::to($data['role'])->send(new TestMail($user));
+        return $user;
+        // Mail::to($data['password'])->send(new TestMail($user));
+        // return $user;
     }
 }

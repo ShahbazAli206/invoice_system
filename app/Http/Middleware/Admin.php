@@ -26,7 +26,7 @@ class Admin
             return $next($request);
         }
         if ($user->role == 2) {
-            return redirect('/pages/home');
+            return redirect('/pages/home2');
         }
         if ($user->role == 3) {
             return redirect('/technicianpanel');

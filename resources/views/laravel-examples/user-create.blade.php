@@ -7,11 +7,11 @@
     <div class="row">
         <div class="col-12">
             <h1 class="page-title">Create Technicians</h1>
-<div class="container" >
+<div class="container">
   <div class="row mb-5">
       <div class="col-12">
-          <div class="card" style="background-color: rgb(172, 245, 221)">
-              <div class="card-header" style="background-color: rgb(172, 245, 221)">
+          <div class="card">
+              <div class="card-header">
                   <h5>Create Technicians</h5>
               </div>
               <div class="card-body">

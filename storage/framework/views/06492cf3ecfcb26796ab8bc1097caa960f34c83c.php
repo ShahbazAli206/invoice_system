@@ -278,21 +278,20 @@ address { font-style: normal; }
   </lord-icon>
 </li>
 </a>
-
-<li>
-  <div>
-    <a href="<?php echo e(route('login')); ?>">
-      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<lord-icon
+<a href="<?php echo e(route('login')); ?>">
+  <li type="button" class="btn mt-3">
+    
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <lord-icon
     src="https://cdn.lordicon.com/uiakkykh.json"
     trigger="hover"
     colors="primary:#121331"
     style="width:27px;height:27px">
 </lord-icon>
-  </a>            
-  
-</div>
 </li>
+</a>
+
+
 </ul>
 </nav>
 <div class="tasver"> 
@@ -313,13 +312,8 @@ address { font-style: normal; }
           </div>
         </div>
         
-        
       </div>
-   
-      
-      
-      
-        
+
       <script>
       var myIndex = 0;
       carousel();
@@ -349,7 +343,7 @@ address { font-style: normal; }
     style="width:70px;height:70px">
 </lord-icon>
     </div>
-    <div class="tm-about-text" style="font-size: 15px; color:#2b2fa7">
+    <div class="tm-about-text" style="font-size: 15px; color:#000000">
       
     We will Porvide you all the household services you need.
     We can solve all of these problems and connect each individual user (resident of society) to its administration through this portal on 24/7. The management can manage the different activities/issues of the society efficiently. Instead of using different platforms and waste of time in local market, the resident can get all these services at their doorstep. To meet society's daily needs relevant to maintenance, our system effectively and dependably integrates a variety of services for ease of residents.
@@ -394,7 +388,7 @@ address { font-style: normal; }
             <div class="content">
               <form action="<?php echo e(route ('public.store')); ?>" method="post">
                 <?php echo csrf_field(); ?>
-                
+               
                 <div class="email">
                 <label for="email" class="text"> Email &nbsp;</label>
                 <input type="text" id="email" name="email" placeholder="email" >

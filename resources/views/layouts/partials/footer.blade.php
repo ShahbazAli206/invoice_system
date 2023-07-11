@@ -8,7 +8,7 @@
         <div class="row mt-4">
           <!--Grid column-->
           <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-            <h5 class="badge badge-secondary mb-4">About Society</h5>
+            <h5 class="text-uppercase mb-4">About Society</h5>
   
             <p>
               Ghar Bar service is the official portal of the society {the one the main branches of multi_Gargen societies}
@@ -20,17 +20,17 @@
   
             <div class="mt-4">
               <!-- Facebook -->
-              <a href="https://www.facebook.com/ehsanraza.kazmi" target="_blank" type="button" class="btn fa-7x">           
+              <a type="button" class="btn fa-7x">           
               <img class="logo" src="{{asset('images/facebook.png')}}" style="width: 30px" alt="hiii"></a>
 
               <!-- Dribbble -->
-              <a href="https://twitter.com/EhsanRazaKazmi1" target="_blank" type="button" class="btn mw-3">
+              <a type="button" class="btn mw-3">
               <img class="mw-3" src="{{asset('images/twitter.png')}}" style="width: 35px" alt="hiii"></a>
 
               <!-- Google + -->
               <a href="https://www.youtube.com/channel/UC1fVJMX9NU0Q6qQMWGQdQ7A" type="button" target="_blank" class="btn mw-3">
                 <img class="mw-3" src="{{asset('images/youtube.JPG')}}" style="width: 35px" alt="hiii"></a>                <!-- Linkedin -->
-              <a href="https://www.linkedin.com/in/ehsan-raza-83379b23b/" target="_blank" class="btn mw-3">
+              <a href="https://www.google.com" class="btn mw-3">
                 <img class="mw-3" src="{{asset('images/linkedin.png')}}" style="width: 35px" alt="hiii"></a>                  <!-- Linkedin -->
             </div>
           </div>
@@ -38,19 +38,19 @@
   
           <!--Grid column-->
           <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="badge badge-secondary mb-4 pb-1">About us</h5>
+            <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
   
-            {{-- <div class="form-outline form-white mb-4">
+            <div class="form-outline form-white mb-4">
               <input type="text" id="formControlLg" class="form-control form-control-lg">
               <label class="form-label" for="formControlLg" style="margin-left: 0px;">Search</label>
-            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 48.8px;"></div><div class="form-notch-trailing"></div></div></div> --}}
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 48.8px;"></div><div class="form-notch-trailing"></div></div></div>
   
             <ul class="fa-ul" style="margin-left: 1.65em;">
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">City Housing Society, Wah Cantt</span>
+                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
               </li>
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">Gharbar@gmail.com</span>
+                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@example.com</span>
               </li>
               <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234 567 88</span>
@@ -64,7 +64,7 @@
   
           <!--Grid column-->
           <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="badge badge-secondary mb-4">Contact hours</h5>
+            <h5 class="text-uppercase mb-4">Opening hours</h5>
   
             <table class="table text-center text-white">
               <tbody class="font-weight-normal">

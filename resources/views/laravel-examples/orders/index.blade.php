@@ -10,8 +10,8 @@
     </div>
 
     <div class="row">
-        <div class="col-12" >
-            <div class="card mb-4 mx-4 p-3" style="background-color: rgb(172, 245, 221)">
+        <div class="col-12">
+            <div class="card mb-4 mx-4 p-3">
                 <div class="card-header pb-0">
                     
                 </div>
@@ -19,7 +19,7 @@
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0" id = 'myTable'>
                             <thead>
-                                <tr style="font-style: oblique">
+                                <tr>
                                     <th>Orders ID</th>
                                     <th>By</th>
                                     <th>Items</th>

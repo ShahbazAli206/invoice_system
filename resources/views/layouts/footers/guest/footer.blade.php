@@ -23,7 +23,7 @@
           </a>
       </div>
         @if (!auth()->user() || \Request::is('static-sign-up')) 
-          {{-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+          <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
               <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
                   <span class="text-lg fab fa-dribbble" aria-hidden="true"></span>
               </a>
@@ -39,7 +39,7 @@
               <a href="#" target="_blank" class="text-secondary me-xl-4 me-4">
                   <span class="text-lg fab fa-github" aria-hidden="true"></span>
               </a>
-          </div> --}}
+          </div>
         @endif
       </div>
       

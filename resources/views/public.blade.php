@@ -278,21 +278,20 @@ address { font-style: normal; }
   </lord-icon>
 </li>
 </a>
-
-<li>
-  <div>
-    <a href="{{route('login')}}">
-      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<lord-icon
+<a href="{{route('login')}}">
+  <li type="button" class="btn mt-3">
+    {{-- <strong style="color: black">About</strong> --}}
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <lord-icon
     src="https://cdn.lordicon.com/uiakkykh.json"
     trigger="hover"
     colors="primary:#121331"
     style="width:27px;height:27px">
 </lord-icon>
-  </a>            
-  
-</div>
 </li>
+</a>
+
+
 </ul>
 </nav>
 <div class="tasver"> 
@@ -312,20 +311,9 @@ address { font-style: normal; }
             <img class="mySlides" src="{{asset('images/download.jpeg')}}" style="width:120%">
           </div>
         </div>
-        {{-- <div class="grid-item item3">
-          <div class="w3-content w3-section" style="max-width:500px">
-            <img class="mySlides" src="{{asset('images/1.jpg')}}" style="width:100%">
-            <img class="mySlides" src="{{asset('images/2.jpeg')}}" style="width:100%">
-            <img class="mySlides" src="{{asset('images/download.jpeg')}}" style="width:100%">
-          </div>
-        </div> --}}
         
       </div>
-   
-      
-      
-      {{-- </div> --}}
-        
+
       <script>
       var myIndex = 0;
       carousel();
@@ -355,7 +343,7 @@ address { font-style: normal; }
     style="width:70px;height:70px">
 </lord-icon>
     </div>
-    <div class="tm-about-text" style="font-size: 15px; color:#2b2fa7">
+    <div class="tm-about-text" style="font-size: 15px; color:#000000">
       {{-- <p >Nano Folio is simple HTML template with a minimal very light-weight custom CSS file. Max content width is 940 pixels. You can easily change the width or any part in this template. Gallery comes with a pop-up image and simple categories.</p>
       <p >Please support Tooplate website by telling your friends about it. That is going to be very helpful for us. Feel free to <a rel="nofollow" href="https://www.tooplate.com/contact" target="_blank">message us</a> via email or live chat if you have anything to say.</p> --}}
     We will Porvide you all the household services you need.

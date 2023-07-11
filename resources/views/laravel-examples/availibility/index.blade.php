@@ -7,14 +7,14 @@
     <div class="row">
         <div class="col-12">
             <h1 class="page-title">Edit Availability</h1>
-<div class="container" >
+<div class="container">
     <div class="row mb-5">
         <div class="col-md-6 offser-md-3">
-            <div class="card" style="background-color: rgb(172, 245, 221)">
-                <div class="card-header" style="background-color: rgb(172, 245, 221)">
+            <div class="card">
+                <div class="card-header">
                     <h5>Create Timing (Availibility)</h5>
                 </div>
-                <div class="card-body" >
+                <div class="card-body">
                     <form action="{{route('adminpanel.availability.store')}}" method="post"> 
                         @csrf
                         <div class="form-group mb-3">
@@ -56,10 +56,10 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header" style="background-color: rgb(172, 245, 221)">
+                <div class="card-header">
                     <h5>Availibility</h5>
                 </div>
-                <div class="card-body" style="background-color: rgb(172, 245, 221)">
+                <div class="card-body">
                     <table class="table table-stripped" id="myTable">
                         <thead>
                             <tr>

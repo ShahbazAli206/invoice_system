@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\WishlistController;
-use App\Models\Category;
 use Illuminate\Validation\ValidationException;
 
 /*
@@ -28,7 +28,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::get('/sanctumm', function (Request $request) {
+
+    Log::error('Error saving data to the database');
+    $response = 'dfjsdklfjdslfjk';
+    return response($response, 201);
+});
+
+
+
 Route::post('/sanctum/token', function (Request $request) {
+    Log::error('Error saving data to the database');
+
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
@@ -49,6 +61,8 @@ Route::post('/sanctum/token', function (Request $request) {
         'user' => $user,
         'token' => $token,
     ];
+    Log::error('Error saving data to the database');
+
     return response($response, 201);
 });
 

@@ -16,12 +16,13 @@ class CartController extends Controller
         $product = Services::findOrFail($id);
         $color = Color::findOrFail($request->color);
 
-        Log::error('Error saving data to the database' . $product->category_id);
+        Log::error('Error saving data to the database' . $request->description);
         $item = [
             'product' => $product,
             'quantity' => $request->quantity,
             'color' => $color,
             'category_id' => $product->category_id,
+            'description' => $request->description,
         ];
 
         if (session()->has('cart')) {

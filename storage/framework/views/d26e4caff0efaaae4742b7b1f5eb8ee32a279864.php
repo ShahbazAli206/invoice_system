@@ -12,13 +12,13 @@
               
 
 
-              <div class="row mb-5" >
-                <div class="col-md-6 offser-md-3" >
-                    <div class="card" style="background-color: rgb(172, 245, 221)">
-                        <div class="card-header" style="background-color: rgb(172, 245, 221)">
+              <div class="row mb-5">
+                <div class="col-md-6 offser-md-3">
+                    <div class="card">
+                        <div class="card-header">
                             <h5>Create Category</h5>
                         </div>
-                        <div class="card-body" >
+                        <div class="card-body">
                             <form action="<?php echo e(route('adminpanel.category.store')); ?>" method="post">
                                 <?php echo csrf_field(); ?>
                                 <div class="form-group mb-3">
@@ -55,15 +55,14 @@ unset($__errorArgs, $__bag); ?>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="card" style="background-color: rgb(172, 245, 221)">
-                        <div class="card-header" style="background-color: rgb(172, 245, 221)">
+                    <div class="card">
+                        <div class="card-header">
                             <h5>Categories</h5>
                         </div>
                         <div class="card-body">
                             <table class="table table-stripped" id='myTable'>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Name</th>
                                         <th>Published</th>
                                         <th>Action</th>
@@ -72,7 +71,6 @@ unset($__errorArgs, $__bag); ?>
                                 <tbody>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td><?php echo e($category->id); ?></td>
                                         <td><?php echo e($category->name); ?></td>
                                         <td><?php echo e(\Carbon\Carbon::parse($category->created_at)->format('d/m/Y')); ?></td>
                                         <td>

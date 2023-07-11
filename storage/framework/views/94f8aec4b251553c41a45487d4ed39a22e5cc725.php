@@ -1,7 +1,7 @@
 <aside class="side-nav">
     <div class="logo">
         <img src="<?php echo e(asset('img/admin.jpg')); ?>" width="20%" alt="">
-        Technician PANEL
+        Restaurent Panel
     </div>
     <ul>
         <li>
@@ -23,23 +23,47 @@
                     style="width:40px;height:40px">
                 </lord-icon>&nbsp; Orders</a>
         </li>
+       
         <li>
-            <a href="<?php echo e(route('technicianpanel.confirmed')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                <lord-icon
-                    src="https://cdn.lordicon.com/egiwmiit.json"
-                    trigger="hover"
-                    colors="primary:#121331"
-                    style="width:40px;height:40px">
-                </lord-icon>&nbsp;Orders History</a>
-        </li>
-        <li>
-            <a href="<?php echo e(route('chatting')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+            <a href="<?php echo e(route('technician.menu')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                 <lord-icon
                     src="https://cdn.lordicon.com/hpivxauj.json"
                     trigger="hover"
                     colors="primary:#121331"
                     style="width:40px;height:40px">
-                </lord-icon>&nbsp; Chat</a>
+                </lord-icon>&nbsp; Menu</a>
+
+        </li>
+        <li>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="width: 80%;">
+                    <a href="<?php echo e(route('technician.notifications')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/hpivxauj.json"
+                            trigger="hover"
+                            colors="primary:#121331"
+                            style="width:40px;height:40px">
+                        </lord-icon>&nbsp; Notifications      
+                </a>
+                </div>
+                <div style="width: 20%;">
+                    <a  style="height:60px; padding-left:2px;" href="<?php echo e(route('technician.notifications')); ?>" >
+                        <i class="fa fa-bell fa-2x"></i>
+                        <span class="info-count" id="navbarDropdownn"><?php echo e(auth()->user()->unreadNotifications->count()); ?></span>
+                    </a>
+                </div>
+              </div>
+        </li>
+        <li>
+            
+            <a href="<?php echo e(route('technician.notifications')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/hpivxauj.json"
+                    trigger="hover"
+                    colors="primary:#121331"
+                    style="width:40px;height:40px">
+                </lord-icon>&nbsp; Notifications      
+        </a>
 
         </li>
         <li>
@@ -51,7 +75,16 @@
                     style="width:50px;height:50px">
                 </lord-icon>&nbsp; Edit Profile</a>
         </li>
-        
+        <li>
+            <a href="<?php echo e(route('chatting')); ?>"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/hpivxauj.json"
+                    trigger="hover"
+                    colors="primary:#121331"
+                    style="width:40px;height:40px">
+                </lord-icon>&nbsp; Chat</a>
+
+        </li>
     </ul>
 
     <div class="logout">

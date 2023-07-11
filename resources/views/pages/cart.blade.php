@@ -5,7 +5,6 @@
         <h1>Cart</h1>
         <h3 class="cart-amount"></h3>
     </header>
-    
     <main class="cart-page">
         <div class="container">
             <div class="cart-table">
@@ -16,7 +15,7 @@
                             <th>Time (slected)</th>
                             <th>Charges (Approx)</th>
                             <th>Number of Tasks</th>
-                            <th>Category id</th>
+                            <th>Service id</th>
                             <th>Action</th>
                             
                         </tr>
@@ -36,7 +35,7 @@
                                 <td>{{ $item['color']['name']}}</td>
                                 <td>${{ $item['product']['price'] / 100}}</td>
                                 <td>{{ $item['quantity']}}</td>
-                                <td>${{ $item['category_id']}}</td>
+                                <td>{{ $item['category_id']}}</td>
                                 <td>
                                     <form action="{{route('removeFromCart', $key)}}" method="post">
                                         @csrf

@@ -12,9 +12,10 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ResetController;
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\SessionsController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\TechnicianController;
 use App\Http\Controllers\TechProfileController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ResidentProfileController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -41,17 +43,32 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 Route::get('/', [HomeController::class, 'public'])->name('public');
 Route::post('/', [HomeController::class, 'store'])->name('public.store');
+Route::post('/otp', [HomeController::class, 'otp'])->name('otp');
+Route::get('/mark-as-read', [DepositController::class, 'markAsRead'])->name('mark-as-read');
+Route::post('/mark-read', [DepositController::class, 'markRead'])->name('mark-read');
+
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
+});
 
 Auth::routes(['verify' => true]);
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\IndexController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/login/forgot-password', [ResetController::class, 'create']);
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendEmail']);
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPass'])->name('password.reset');
+Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
+
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/adminpanel', [HomeController::class, 'home'])->name('adminpanel');
-    // Route::get('/adminpanel', [HomeController::class, 'getTotalServices'])->name('adminpanel');
     Route::get('msgs', [HomeController::class, 'read'])->name('msgs');
     Route::delete('msgs/{id}', [HomeController::class, 'delete'])->name('msgs.delete');
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('billing', function () {
         return view('billing');
     })->name('billing');
@@ -89,6 +106,8 @@ Route::group(['middleware' => 'admin'], function () {
         Route::delete('/{id}', [ColorController::class, 'destroy'])->name('adminpanel.availability.destroy');
     });
 
+
+
     Route::group(['prefix' => 'technicians'], function () {
         Route::get('/', [AdminTechController::class, 'index'])->name('adminpanel.technicians');
         Route::get('/create', [AdminTechController::class, 'create'])->name('adminpanel.technicians.create');
@@ -96,6 +115,11 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('/{id}', [AdminTechController::class, 'edit'])->name('adminpanel.technicians.edit');
         Route::put('/{id}', [AdminTechController::class, 'update'])->name('adminpanel.technicians.edit');
         Route::delete('/{id}', [AdminTechController::class, 'destroy'])->name('adminpanel.technicians.destroy');
+    });
+
+
+    Route::group(['prefix' => 'Customers'], function () {
+        Route::get('/', [AdminTechController::class, 'customer'])->name('adminpanel.Customers');
     });
 
     Route::group(['prefix' => 'orders'], function () {
@@ -108,18 +132,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('mail/contact', [mailController::class, "mailform"])->name('mail.create');
     Route::post('mail/sendemail', [mailController::class, "sendmail"])->name('sendmail');
 });
-Route::get('/login/forgot-password', [ResetController::class, 'create']);
-Route::post('/forgot-password', [ForgotPasswordController::class, 'sendEmail']);
-Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPass'])->name('password.reset');
-Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
-
 
 
 // Resident Portal
 
 Route::group(['middleware' => 'resident'], function () {
     Route::group(['prefix' => 'pages'], function () {
-        Route::get('/home', [PagesController::class, 'home'])->name('home');
+        Route::get('/home/{id}', [PagesController::class, 'home'])->name('home');
+        Route::get('/home2', [PagesController::class, 'home2'])->name('home2');
         Route::get('/cart', [PagesController::class, 'cart'])->name('cart');
         Route::get('/wishlist', [PagesController::class, 'wishlist'])->name('wishlist');
         Route::get('/account', [PagesController::class, 'account'])->name('account');
@@ -141,11 +161,7 @@ Route::group(['middleware' => 'resident'], function () {
     });
 });
 
-
-
-
-
-// Technicina Panel
+//technician panel
 Route::group(['middleware' => 'technician'], function () {
 
     Route::group(['prefix' => 'technicianpanel'], function () {
@@ -153,13 +169,38 @@ Route::group(['middleware' => 'technician'], function () {
         Route::get('/introduction', [TechnicianController::class, 'intro'])->name('technicianpanel.introduction');
         Route::get('/technician/pages/view/{id}', [TechnicianController::class, 'view'])->name('technicianpanel.pages.view');
         Route::post('/', [TechnicianController::class, 'store'])->name('technicianpanel.store');
-        
+
 
         Route::get('/confirmed', [TechnicianController::class, 'confirmed'])->name('technicianpanel.confirmed');
         Route::put('/{id}', [TechnicianController::class, 'updateStatus'])->name('technicianpanel.status.update');
 
         Route::get('/profile', [TechProfileController::class, 'create'])->name('technicianpanel.pages.profile');
         Route::post('/profile', [TechProfileController::class, 'store'])->name('technicianpanel.pages.store');
+    });
+});
+Route::group(['middleware' => 'technician'], function () {
+
+    Route::group(['prefix' => 'technicianpanel'], function () {
+        Route::get('/', [TechnicianController::class, 'dashboard'])->name('technicianpanel');
+        Route::get('/introduction', [TechnicianController::class, 'intro'])->name('technicianpanel.introduction');
+        Route::get('/technician/pages/view/{id}', [TechnicianController::class, 'view'])->name('technicianpanel.pages.view');
+
+        Route::post('/', [TechnicianController::class, 'store'])->name('technicianpanel.store');
+        Route::get('/confirmed', [TechnicianController::class, 'confirmed'])->name('technicianpanel.confirmed');
+
+        Route::put('/{id}', [TechnicianController::class, 'updateStatus'])->name('technicianpanel.status.update');
+        Route::get('/profile', [TechProfileController::class, 'create'])->name('technicianpanel.pages.profile');
+        Route::post('/profile', [TechProfileController::class, 'store'])->name('technicianpanel.pages.store');
+    });
+
+    Route::group(['prefix' => 'technician'], function () {
+        Route::get('/', [TechnicianController::class, 'index'])->name('technician.menu');
+        Route::get('/notifications', [TechnicianController::class, 'notifications'])->name('technician.notifications');
+        Route::get('/create', [TechnicianController::class, 'create'])->name('technician.create');
+        Route::post('/create', [TechnicianController::class, 'sstore'])->name('technician.sstore');
+        Route::get('/{id}', [TechnicianController::class, 'edit'])->name('technician.eedit');
+        Route::put('/{id}', [TechnicianController::class, 'update'])->name('technician.edit');
+        Route::delete('/{id}', [TechnicianController::class, 'destroy'])->name('technician.destroy');
     });
 });
 

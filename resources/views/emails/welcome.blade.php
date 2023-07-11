@@ -20,6 +20,5 @@
     </h1>
     <p>Your Email is:  &nbsp; {{ $user->email }}</p>
     <p>Your Name is:  {{ $user->name }}</p>
-    {{-- <p>Your Password is:  {{ $user->password }}</p> --}}
 </body>
 </html>

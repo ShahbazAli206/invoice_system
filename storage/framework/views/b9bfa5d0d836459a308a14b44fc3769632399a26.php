@@ -47,6 +47,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+
+                    <?php if(session('error')): ?>
+    <div style="color: red; margin-top: 5px;">
+        <?php echo e(session('error')); ?>
+
+    </div>
+<?php endif; ?>
                     
                     <div class="text-center">
                       
