@@ -47,10 +47,10 @@
                 </a>
                 </div>
                 <div style="width: 20%;">
-                    <a  style="height:60px; padding-left:2px;" href="{{route('technician.notifications')}}" >
+                    {{-- <a  style="height:60px; padding-left:2px;" href="{{route('technician.notifications')}}" >
                         <i class="fa fa-bell fa-2x"></i>
                         <span class="info-count" id="navbarDropdownn">{{auth()->user()->unreadNotifications->count()}}</span>
-                    </a>
+                    </a> --}}
                 </div>
               </div>
         </li>

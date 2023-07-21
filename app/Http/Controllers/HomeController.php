@@ -71,12 +71,15 @@ class HomeController extends Controller
 
     public function home()
     {
-        $user = User::find(1);
-        $services = DB::table('services')->count();
-        $orders = DB::table('orders')->count();
-        $categories = DB::table('categories')->count();
-        $users = DB::table('users')->where('role', 1)->count();
-        return view('dashboard', compact('services', 'orders', 'categories', 'users'));
+        $invoice = DB::table('invoice')->count();
+        $estimate = DB::table('estimates')->count();
+        $customers = DB::table('users')->where('role', 2)->count();
+        $totalAmount = DB::table('users')
+            ->where('role', 2)
+            ->sum('amount_due');
+        Log::error(' The DB otp is this  ==>  ' . $totalAmount);
+
+        return view('dashboard', compact('invoice', 'estimate', 'customers', 'totalAmount'));
     }
 
 

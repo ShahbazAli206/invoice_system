@@ -23,7 +23,7 @@
                 
                     </div>
                     <br>
-                    <button class="btn btn-info"><a href="{{route('technicianpanel')}}" style="color:rgb(19, 39, 147)">Go straight into Portal</a></button>
+                    <button class="btn btn-info"><a href="{{route('adminpanel')}}" style="color:rgb(19, 39, 147)">Go straight into Portal</a></button>
                     {{-- <a href="{{route('pages/home')}}"></a> --}}
                    
                 </div>

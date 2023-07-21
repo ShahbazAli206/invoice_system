@@ -30,13 +30,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->double('latitude');
-            $table->double('longitude');
-            $table->integer('role'); //superadmin=1, admin=2, depthead=3, 
+            $table->integer('role');
             $table->string('password');
             $table->rememberToken();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('ph_no', 20)->nullable();
+            $table->string('amount_due', 20)->default(0);
             $table->string('otp', 20)->nullable();
             $table->timestamps();
         });

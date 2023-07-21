@@ -9,20 +9,21 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Totals Customers Residents</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Amount Due</p>
                 <h5 class="font-weight-bolder mb-0">
-                  {{$users}}
+                  {{$totalAmount}}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-              <lord-icon
-                  src="https://cdn.lordicon.com/etqbfrgp.json"
-                  trigger="hover"
-                  colors="outline:#131432,primary:#92140c,secondary:#f24c00,tertiary:#b26836,quaternary:#ebe6ef"
-                  style="width:52px;height:52px">
-              </lord-icon>
+<lord-icon
+    src="https://cdn.lordicon.com/ttrspzxk.json"
+    trigger="hover"
+    colors="primary:#92140c,secondary:#ffc738"
+    style="width:70px;height:70px">
+</lord-icon>
+            
           </div>
         </div>
       </div>
@@ -33,9 +34,9 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">General Food Categories </p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Customers</p>
                 <h5 class="font-weight-bolder mb-0">
-                  {{$categories}}
+                  {{$customers}}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -57,9 +58,9 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Restaurents</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Invoices</p>
                 <h5 class="font-weight-bolder mb-0">
-                  {{$services}}
+                  {{$invoice}}
                   <span class="text-danger text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -86,9 +87,9 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders Received</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Estimates</p>
                 <h5 class="font-weight-bolder mb-0">
-                  {{$orders}}
+                  {{$estimate}}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -143,7 +144,7 @@
                   </div>
                   <p class="text-xs mt-1 mb-0 font-weight-bold">Customers</p>
                 </div>
-                <h4 class="font-weight-bolder">36K</h4>
+                <h4 class="font-weight-bolder">{{$customers}}</h4>
                 <div class="progress w-75">
                   <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -167,9 +168,9 @@
                       </g>
                     </svg>
                   </div>
-                  <p class="text-xs mt-1 mb-0 font-weight-bold">Orders</p>
+                  <p class="text-xs mt-1 mb-0 font-weight-bold">Invoices</p>
                 </div>
-                <h4 class="font-weight-bolder">2m</h4>
+                <h4 class="font-weight-bolder">{{$invoice}}</h4>
                 <div class="progress w-75">
                   <div class="progress-bar bg-dark w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -191,9 +192,9 @@
                       </g>
                     </svg>
                   </div>
-                  <p class="text-xs mt-1 mb-0 font-weight-bold">Ser_inc</p>
+                  <p class="text-xs mt-1 mb-0 font-weight-bold">Totalamount</p>
                 </div>
-                <h4 class="font-weight-bolder">RS.40K</h4>
+                <h4 class="font-weight-bolder">{{$totalAmount}}</h4>
                 <div class="progress w-75">
                   <div class="progress-bar bg-dark w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -216,9 +217,9 @@
                       </g>
                     </svg>
                   </div>
-                  <p class="text-xs mt-1 mb-0 font-weight-bold">Food Items</p>
+                  <p class="text-xs mt-1 mb-0 font-weight-bold">Estimate</p>
                 </div>
-                <h4 class="font-weight-bolder">43</h4>
+                <h4 class="font-weight-bolder">{{$estimate}}</h4>
                 <div class="progress w-75">
                   <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -231,7 +232,7 @@
     <div class="col-lg-7">
       <div class="card z-index-2">
         <div class="card-header pb-0">
-          <h6>Food Ordres overview</h6>
+          <h6>Invoices Oreview</h6>
           <p class="text-sm">
             <i class="fa fa-arrow-up text-success"></i>
             <span class="font-weight-bold">4% more</span> in 2023

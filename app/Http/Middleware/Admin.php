@@ -26,10 +26,10 @@ class Admin
             return $next($request);
         }
         if ($user->role == 2) {
-            return redirect('/pages/home2');
+            return $next($request);
         }
         if ($user->role == 3) {
-            return redirect('/technicianpanel');
+            return $next($request);
         }
     }
 }

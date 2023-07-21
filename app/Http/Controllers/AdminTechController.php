@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Color;
+use App\Models\Items;
 use App\Models\Category;
 use App\Models\Services;
 use Illuminate\Http\Request;
@@ -20,6 +21,46 @@ class AdminTechController extends Controller
 
         return view('laravel-examples/customer-management', ['prroducts' => $users]);
     }
+    public function customer_create()
+    {
+        return view('laravel-examples/customer_create');
+    }
+
+
+
+    public function customer_store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'phone' => 'required',
+            'Currency' => 'required',
+        ]);
+        // Log::error(' The phone log is this  ==>  ' . $request->phone);
+
+        $product = User::where("email", "=", $request->email)->first();
+
+        //store if email not exists in database already
+        if ($product) {
+            return back()->with('error', 'email already exists, add another one');
+        } else {
+            $product = User::create([
+                'email' => $request->email,
+                'name' => $request->name,
+                'ph_no' => $request->phone,
+                'role' => '2',
+            ]);
+            User::where('id', $product['id'])->update([
+                'ph_no'    => $request->phone,
+            ]);
+
+            return back()->with('success', 'Products Saved!');
+        }
+
+        //return response
+
+        return back()->with('success', 'Products Saved!');
+    }
 
     //display Restaurents table
 
@@ -33,7 +74,7 @@ class AdminTechController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Items::all();
         $colors = Color::all();
         return view('laravel-examples/user-create', ['categories' => $categories, 'colors' => $colors]);
     }
@@ -79,7 +120,7 @@ class AdminTechController extends Controller
     public function edit($id)
     {
         $product = Services::findOrFail($id);
-        $categories = Category::all();
+        $categories = Items::all();
         $colors = Color::all();
         return view('laravel-examples/user-edit', ['categories' => $categories, 'colors' => $colors, 'asdf' => $product]);
     }

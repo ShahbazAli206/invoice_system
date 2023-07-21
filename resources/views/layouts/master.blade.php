@@ -95,20 +95,7 @@
   $('#myTable').DataTable();
 } );
   </script>
-<script>
-  document.getElementById('navbarDropdownn').addEventListener('click', function() {
-  var dropdownMenu = document.getElementById('notificationDropdown');
-  dropdownMenu.classList.toggle('show');
-});
 
-document.addEventListener('click', function(event) {
-  var dropdownMenu = document.getElementById('notificationDropdown');
-  var targetElement = event.target;
-  if (!dropdownMenu.contains(targetElement) && !targetElement.matches('#navbarDropdown')) {
-    dropdownMenu.classList.remove('show');
-  }
-});
-</script>
     
 </body>
 </html>

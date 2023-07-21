@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($order as $order)
+                                {{-- @foreach ($order as $order)
                                 <tr>
                                     <td>{{$order->name}}</td>
                                     <td style="max-width: 120px; overflow-x: auto; white-space: nowrap;">{{$order->email}}</td>
@@ -48,7 +48,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>

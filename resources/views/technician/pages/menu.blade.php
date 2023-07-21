@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($prroducts as $product)
+                                {{-- @foreach ($prroducts as $product)
                                 <tr>
                                     
                                     <td>
@@ -81,7 +81,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>

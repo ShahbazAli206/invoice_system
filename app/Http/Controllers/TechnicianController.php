@@ -23,9 +23,8 @@ class TechnicianController extends Controller
 {
     public function index()
     {
-        $pproducts = Services::where('restaurent_id', Auth::user()->id)->with('category', 'colors')->orderBy('created_at', 'desc')->get();
-        Log::error(' The storing data for menu item check is this  ==>  ' . $pproducts);
-        return view('technician.pages.menu', ['prroducts' => $pproducts]);
+
+        return view('technician.pages.menu');
     }
 
     public function notifications()
@@ -37,9 +36,8 @@ class TechnicianController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $colors = Color::all();
-        return view('technician.pages.create', ['categories' => $categories, 'colors' => $colors]);
+
+        return view('technician.pages.create');
     }
     public function sstore(Request $request)
     {
@@ -144,63 +142,28 @@ class TechnicianController extends Controller
     }
     public function dashboard()
     {
-        $categ_id = auth()->user()->category_id; // Replace with your variable value
-        // $order = DB::select('SELECT * from orders WHERE status = ? AND category_id = ?', ['shipped', $categ_id]);
 
 
-        $orderss = Order::select('orders.id')
-            ->join('items', 'orders.id', '=', 'items.order_id')
-            ->join('services', 'items.service_id', '=', 'services.id')
-            ->where('services.restaurent_id', Auth::user()->id)
-            ->get();
-
-
-        $orders = json_decode($orderss, true); // Decode the JSON array
-
-        $orderIds = array_column($orders, 'id'); // Extract the 'id' values from the array
-
-        $result = DB::table('orders')
-            ->whereIn('id', $orderIds)
-            ->get();
-        // $order = DB::select('SELECT o.* FROM orders AS o
-        // INNER JOIN items AS i ON o.id = i.order_id
-        // WHERE o.status = ? AND i.category_id = ?', ['shipped', $categ_id]);
-        Log::error('The filtered orders are is ==> ' . $result);
-
-        return view('technician.pages.dashboard')->with(['order' => $result]);
+        return view('technician.pages.dashboard');
     }
     public function view($id)
     {
-        $states = ['Received', 'Processing', 'On the way', 'Delivered', 'Cancel'];
-        $order = Order::with('user', 'items', 'items.services', 'items.color')->findOrFail($id);
-        return view('technician.pages.view', ['order' => $order, 'states' => $states]);
+
+        return view('technician.pages.view');
     }
     public function store($id, Request $request)
     {
-        Order::findOrFail($id)->update(['status' => $request->status]);
         return back()->with('success', ' Order has been Accepted');
     }
 
     public function confirmed()
     {
-        $orderconfirm = orderconfirm::all();
-        return view('technician.pages.confirmed')->with(['orderconfirm' => $orderconfirm]);
+
+        return view('technician.pages.confirmed');
     }
     public function updateStatus($id, Request $request)
     {
-        $order = Order::find($id);
 
-        if (!$order) {
-            return redirect()->back()->with('error', 'Order not found.');
-        }
-
-
-        $order->status = $request->input('status');
-        $order->note = $request->input('note');
-        $order->save();
-        Log::error('Cartttttttt' . $order->user_id . "desc" .  $order->note);
-
-        User::find($order->user_id)->notify(new OrderStatusChanged($order->status, $order->note));
 
         return back()->with('success', 'Order Updated!');
     }

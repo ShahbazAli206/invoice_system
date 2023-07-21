@@ -23,13 +23,13 @@ class technician
 
         $user = Auth::user();
         if ($user->role == 3) {
-            return $next($request);
+            return redirect('/adminpanel');
         }
         if ($user->role == 1) {
             return redirect('/adminpanel');
         }
         if ($user->role == 2) {
-            return redirect('/pages/home2');
+            return redirect('/adminpanel');
         }
     }
 }

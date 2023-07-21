@@ -24,13 +24,13 @@ class resident
 
         $user = Auth::user();
         if ($user->role == 2) { //resident
-            return $next($request);
+            return redirect('/adminpanel');
         }
         if ($user->role == 1) {
             return redirect('/adminpanel');
         }
         if ($user->role == 3) {
-            return redirect('/technicianpanel');
+            return redirect('/adminpanel');
         }
         // if($user->role ==4){
         //     return redirect('/staff');
